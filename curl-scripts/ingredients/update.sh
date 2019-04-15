@@ -7,11 +7,13 @@ curl "${API}${URL_PATH}/${ID}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
-  --header "Authorization: Bearer ${TOKEN}" \
   --data '{
-    "recipe": {
-      "title": "'"${TITLE}"'",
-      "ingredient": "'"${INGREDIENT}"'"
+      "recipe": {
+        "name": "'"${NAME}"'",
+        "food_group": "'"${GROUP}"'",
+        "food_type": "'"${TYPE}"'",
+        "column": "'"${COL}"'",
+        "row": "'"${ROW}"'"
     }
   }'
 

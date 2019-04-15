@@ -27,6 +27,7 @@ router.get('/recipes/:id', requireToken, (req, res, next) => {
 })
 
 // CREATE
+// post recipes with ingredients collection
 router.post('/recipes', requireToken, (req, res, next) => {
   req.body.recipe.owner = req.user.id
   Recipe.create(req.body.recipe)
@@ -37,13 +38,14 @@ router.post('/recipes', requireToken, (req, res, next) => {
 })
 
 // UPDATE
+// patch recipes with ingredients collection
 router.patch('/recipes/:id', requireToken, removeBlanks, (req, res, next) => {
-  delete req.body.example.owner
+  delete req.body.recipe.owner
   Recipe.findById(req.params.id)
     .then(handle404)
-    .then(example => {
-      requireOwnership(req, example)
-      return example.update(req.body.example)
+    .then(recipe => {
+      requireOwnership(req, recipe)
+      return recipe.update(req.body.recipe)
     })
     .then(() => res.sendStatus(204))
     .catch(next)
@@ -53,9 +55,9 @@ router.patch('/recipes/:id', requireToken, removeBlanks, (req, res, next) => {
 router.delete('/recipes/:id', requireToken, (req, res, next) => {
   Recipe.findById(req.params.id)
     .then(handle404)
-    .then(example => {
-      requireOwnership(req, example)
-      example.remove()
+    .then(recipe => {
+      requireOwnership(req, recipe)
+      recipe.remove()
     })
     .then(() => res.sendStatus(204))
     .catch(next)

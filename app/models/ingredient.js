@@ -11,11 +11,11 @@ const ingredientSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  food_group: {
+  foodgroup: {
     type: String,
     required: true
   },
-  food_type: {
+  foodtype: {
     type: String,
     required: true
   },
@@ -27,6 +27,11 @@ const ingredientSchema = new mongoose.Schema({
     type: String,
     required: true
   }
+  // ,owner: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   required: true
+  // }
 }, {
   collection: 'ingredients'
 })

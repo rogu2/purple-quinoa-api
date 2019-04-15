@@ -30,7 +30,17 @@ router.get('/recipes/:id', requireToken, (req, res, next) => {
 // post recipes with ingredients collection
 router.post('/recipes', requireToken, (req, res, next) => {
   req.body.recipe.owner = req.user.id
-  Recipe.create(req.body.recipe)
+  Recipe.findOneAndUpdate({
+    title: req.body.recipe.title
+  },
+
+  { $set: { 'title': req.body.recipe.title,
+    'ingredient': req.body.recipe.ingredient,
+    'owner': req.body.recipe.owner
+  }},
+  { upsert: true, new: true }
+  )
+  // Recipe.create(req.body.recipe)
     .then(recipe => {
       res.status(201).json({ recipe: recipe.toObject() })
     })

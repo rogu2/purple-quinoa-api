@@ -7,8 +7,8 @@ const cors = require('cors')
 // require route files
 const exampleRoutes = require('./app/routes/example_routes')
 const userRoutes = require('./app/routes/user_routes')
-
-// require error handling middleware
+const recipeRoutes = require('./app/routes/recipe_routes')
+const ingredientRoutes = require('./app/routes/ingredient_routes')
 const errorHandler = require('./lib/error_handler')
 
 // require database configuration logic
@@ -60,6 +60,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // register route files
 app.use(exampleRoutes)
 app.use(userRoutes)
+app.use(ingredientRoutes)
+app.use(recipeRoutes)
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be

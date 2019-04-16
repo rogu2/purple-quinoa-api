@@ -27,13 +27,21 @@ const ingredientSchema = new mongoose.Schema({
     type: String,
     required: true
   }
-  // ,owner: {
+  // ,
+  // owner: {
   //   type: mongoose.Schema.Types.ObjectId,
   //   ref: 'User',
   //   required: true
   // }
 }, {
-  collection: 'ingredients'
+  // collection: 'ingredients'
+  toObject: {virtuals: true}
 })
+
+// ingredientSchema.virtual('chef', {
+//   ref: 'User',
+//   localField: 'owner',
+//   foreignField: '_id'
+// })
 
 module.exports = mongoose.model('Ingredient', ingredientSchema)

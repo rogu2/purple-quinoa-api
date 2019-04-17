@@ -11,7 +11,8 @@ curl "${API}${URL_PATH}" \
   --data '{
       "recipe": {
         "title": "'"${TITLE}"'",
-        "ingredient": "'"${INGREDIENT}"'"
+        "ingredient": "'"[${INGREDIENT}]"'",
+        "notes": "'"${NOTES}"'"
       }
     }'
 

@@ -8,9 +8,8 @@ const recipeSchema = new mongoose.Schema({
   ingredient: [{
     type: String,
     // type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-    unique: true
+    ref: 'Ingredient',
+    required: true
   }],
   notes: {
     type: String,
@@ -22,24 +21,7 @@ const recipeSchema = new mongoose.Schema({
     required: true
   }
 }, {
-  timestamps: true,
-  toObject: {virtuals: true}
-})
-
-// recipeSchema.virtual('ingredientsList').get(function () {
-//   return this.ingredients.length
-// })
-
-recipeSchema.virtual('ingredients', {
-  ref: 'Ingredient',
-  localField: '_id',
-  foreignField: 'recipe'
-})
-
-recipeSchema.virtual('username', {
-  ref: 'User',
-  localField: 'owner',
-  foreignField: '_id'
+  timestamps: true
 })
 
 module.exports = mongoose.model('Recipe', recipeSchema)

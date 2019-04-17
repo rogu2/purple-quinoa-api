@@ -30,21 +30,52 @@ router.get('/recipes/:id', requireToken, (req, res, next) => {
 // post recipes with ingredients collection
 router.post('/recipes', requireToken, (req, res, next) => {
   req.body.recipe.owner = req.user.id
-  // Recipe.create(req.body.recipe)
-  //   .then(recipe => {
-  //     res.status(201).json({ recipe: recipe.toObject() })
-  //   })
-  //   .catch(next)
-  Recipe.findOneAndUpdate({
-    ingredient: req.body.recipe.ingredient
-  },
+  //   Recipe.create(req.body.recipe)
+  //     .then(recipe => {
+  //       res.status(201).json({ recipe: recipe.toObject() })
+  //     })
+  //     .catch(next)
+  // })
 
-  { $set: { 'title': req.body.recipe.title,
-    'ingredient': req.body.recipe.ingredient,
-    'owner': req.body.recipe.owner
-  }},
-  { upsert: true, new: true }
-  )
+  // const select = req.body.recipe.ingredient
+  // delete req.body.recipe
+
+  // <---Working Uption --->
+  Recipe.findOneAndUpdate(
+    {ingredient: req.body.recipe.ingredient},
+    {$set: {
+      'title': req.body.recipe.title,
+      'ingredient': req.body.recipe.ingredient,
+      'owner': req.body.recipe.owner
+    }},
+    { upsert: true, new: true }
+  ).populate(('ingredients'))
+  // <--- Working Option --->
+    // .then(recipe => {
+    //   const pick = recipe.ingredient.some(ingredient => {
+    //     return ingredient.toString() === select
+    //   })
+    //   if (pick) {
+    //     return recipe.update({$pull: {ingredient: select}})
+    //   } else {
+    //     return recipe.update({$push: {ingredient: select}})
+    //   }
+    // })
+  // const select = req.body.recipe.ingredient
+  // delete req.body.recipe
+  //
+  // Recipe.findById(req.params.id)
+  //   .then(handle404)
+  //   .then(recipe => {
+  //     const pick = recipe.ingredient.some(ingredient => {
+  //       return ingredient.toString() === select
+  //     })
+  //     if (pick) {
+  //       return recipe.update({$pull: {ingredient: select}})
+  //     } else {
+  //       return recipe.update({$push: {ingredient: select}})
+  //     }
+  //   })
     .then(recipe => {
       res.status(201).json({ recipe: recipe.toObject() })
     })

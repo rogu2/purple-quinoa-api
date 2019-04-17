@@ -9,7 +9,7 @@ curl "${API}${URL_PATH}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
-      "recipe": {
+      "ingredient": {
         "name": "'"${NAME}"'",
         "food_group": "'"${GROUP}"'",
         "food_type": "'"${TYPE}"'",

@@ -31,9 +31,8 @@ router.get('/ingredients/:id', (req, res, next) => {
     .catch(next)
 })
 
-// CREATE
-// POST /examples
-router.post('/ingredients', (req, res, next) => {
+// CREATE / POST
+router.post('/ingredients', requireToken, (req, res, next) => {
   req.body.ingredient.owner = req.user.id
   Ingredient.create(req.body.ingredient)
     .then(ingredient => {

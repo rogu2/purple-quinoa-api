@@ -37,23 +37,23 @@ router.get('/recipes/:id', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-router.get('/recipes/:id', requireToken, (req, res, next) => {
-  Recipe.findById(req.params.id).populate('owner')
-    .then(recipes => {
-      // return recipes.map(recipe => {
-      //   const recipeObj = recipe.toObject()
-      //   if (recipeObj.owner._id == req.user.id) { // eslint-disable-line eqeqeq
-      //     recipeObj.editable = true
-      //   } else {
-      //     recipeObj.editable = false
-      //   }
-      //   return recipeObj
-      // })
-    })
-    .then(handle404)
-    .then(recipeObj => res.status(200).json({ recipe: recipeObj }))
-    .catch(next)
-})
+// router.get('/recipes/:id', requireToken, (req, res, next) => {
+//   Recipe.findById(req.params.id).populate('owner')
+//     .then(recipes => {
+//       // return recipes.map(recipe => {
+//       //   const recipeObj = recipe.toObject()
+//       //   if (recipeObj.owner._id == req.user.id) { // eslint-disable-line eqeqeq
+//       //     recipeObj.editable = true
+//       //   } else {
+//       //     recipeObj.editable = false
+//       //   }
+//       //   return recipeObj
+//       // })
+//     })
+//     .then(handle404)
+//     .then(recipeObj => res.status(200).json({ recipe: recipeObj }))
+//     .catch(next)
+// })
 
 // CREATE
 // post recipes with ingredients collection
@@ -127,6 +127,11 @@ router.post('/recipes', requireToken, (req, res, next) => {
 // UPDATE
 // patch recipes with ingredients collection
 router.patch('/recipes/:id', requireToken, removeBlanks, (req, res, next) => {
+  // console.log('THIS IS THE REQ USER========', req.user)
+  // console.log('THIS IS THE REQ BODY ', req.body)
+  // console.log('THIS IS THE REQ BODY RECIPE ', req.body.recipe)
+  console.log('=============')
+  console.log(req.params.id)
   delete req.body.recipe.owner
   Recipe.findById(req.params.id)
     .then(handle404)
@@ -135,14 +140,7 @@ router.patch('/recipes/:id', requireToken, removeBlanks, (req, res, next) => {
       return recipe.update(req.body.recipe)
     })
     .then(() => Recipe.findById(req.params.id))
-    .then(recipe => {
-      const recipeObj = recipe.toObject()
-      recipeObj.editable = true
-      return recipeObj
-    })
-    .then(recipeObj => {
-      res.status(201).json({ recipe: recipeObj })
-    })
+    .then(recipe => res.status(200).json({ recipe: recipe.toObject() }))
     .catch(next)
 })
 

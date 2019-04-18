@@ -28,32 +28,11 @@ router.get('/recipes', requireToken, (req, res, next) => {
 
 // SHOW
 router.get('/recipes/:id', requireToken, (req, res, next) => {
-  // req.params.id will be set based on the `:id` in the route
   Recipe.findById(req.params.id)
     .then(handle404)
-    // if `findById` is succesful, respond with 200 and "encounter" JSON
     .then(recipe => res.status(200).json({ recipe: recipe.toObject() }))
-    // if an error occurs, pass it to the handler
     .catch(next)
 })
-
-// router.get('/recipes/:id', requireToken, (req, res, next) => {
-//   Recipe.findById(req.params.id).populate('owner')
-//     .then(recipes => {
-//       // return recipes.map(recipe => {
-//       //   const recipeObj = recipe.toObject()
-//       //   if (recipeObj.owner._id == req.user.id) { // eslint-disable-line eqeqeq
-//       //     recipeObj.editable = true
-//       //   } else {
-//       //     recipeObj.editable = false
-//       //   }
-//       //   return recipeObj
-//       // })
-//     })
-//     .then(handle404)
-//     .then(recipeObj => res.status(200).json({ recipe: recipeObj }))
-//     .catch(next)
-// })
 
 // CREATE
 // post recipes with ingredients collection
@@ -71,67 +50,9 @@ router.post('/recipes', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-// Recipe.create({
-//   title: req.body.title,
-//   ingredient: req.body.ingredient,
-//   notes: req.body.notes,
-//   owner: req.user.id
-// })
-
-// const select = req.body.recipe.ingredient
-// delete req.body.recipe
-
-// <---Working Uption --->
-// Recipe.findOneAndUpdate(
-//   {ingredient: req.body.recipe.ingredient},
-//   {$set: {
-//     'id': req.body.recipe.id,
-//     'title': req.body.recipe.title,
-//     'ingredient': req.body.recipe.ingredient,
-//     'owner': req.body.recipe.owner
-//   }},
-//   { upsert: true, new: true }
-// ).populate(('ingredients'))
-// <--- Working Option --->
-// .then(recipe => {
-//   const pick = recipe.ingredient.some(ingredient => {
-//     return ingredient.toString() === select
-//   })
-//   if (pick) {
-//     return recipe.update({$pull: {ingredient: select}})
-//   } else {
-//     return recipe.update({$push: {ingredient: select}})
-//   }
-// })
-// const select = req.body.recipe.ingredient
-// delete req.body.recipe
-//
-// Recipe.findById(req.params.id)
-//   .then(handle404)
-//   .then(recipe => {
-//     const pick = recipe.ingredient.some(ingredient => {
-//       return ingredient.toString() === select
-//     })
-//     if (pick) {
-//       return recipe.update({$pull: {ingredient: select}})
-//     } else {
-//       return recipe.update({$push: {ingredient: select}})
-//     }
-//   })
-//     .then(recipe => {
-//       res.status(201).json({ recipe: recipe.toObject() })
-//     })
-//     .catch(next)
-// })
-
 // UPDATE
 // patch recipes with ingredients collection
 router.patch('/recipes/:id', requireToken, removeBlanks, (req, res, next) => {
-  // console.log('THIS IS THE REQ USER========', req.user)
-  // console.log('THIS IS THE REQ BODY ', req.body)
-  // console.log('THIS IS THE REQ BODY RECIPE ', req.body.recipe)
-  console.log('=============')
-  console.log(req.params.id)
   delete req.body.recipe.owner
   Recipe.findById(req.params.id)
     .then(handle404)
@@ -143,27 +64,6 @@ router.patch('/recipes/:id', requireToken, removeBlanks, (req, res, next) => {
     .then(recipe => res.status(200).json({ recipe: recipe.toObject() }))
     .catch(next)
 })
-
-// Alternative Patch:
-// router.patch('/ingredients/:id', requireToken, removeBlanks, (req, res, next) => {
-//   const select = req.body.recipe.ingredient
-//   delete req.body.recipe
-//
-//   Recipe.findById(req.params.id)
-//     .then(handle404)
-//     .then(recipe => {
-//       const pick = recipe.ingredient.some(ingredient => {
-//         return ingredient.toString() === select
-//       })
-//       if (pick) {
-//         return recipe.update({$pull: {ingredient: select}})
-//       } else {
-//         return recipe.update({$push: {ingredient: select}})
-//       }
-//     })
-//     .then(recipe => res.sendStatus(204))
-//     .catch(next)
-// })
 
 // DESTROY
 router.delete('/recipes/:id', requireToken, (req, res, next) => {

@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "almond_milk",
+    "group": "dairy",
+    "type": "milk"
+  },
+  {
+    "id": 2,
+    "name": "soy_milk",
+    "group": "dairy",
+    "type": "milk"
+  },
+  {
+    "id": 3,
+    "name": "whole_milk",
+    "group": "dairy",
+    "type": "milk"
+  },
+  {
+    "id": 4,
+    "name": "banana",
+    "group": "fruit",
+    "type": "fruit"
+  },
+  {
+    "id": 5,
+    "name": "1_percent_milk",
+    "group": "dairy",
+    "type": "milk"
+  },
+  {
+    "id": 6,
+    "name": "2_percent_milk",
+    "group": "dairy",
+    "type": "milk"
+  },
+  {
+    "id": 7,
+    "name": "skim_milk",
+    "group": "dairy",
+    "type": "milk"
+  },
+  {
+    "id": 8,
+    "name": "yogurt",
+    "group": "dairy",
+    "type": "yogurt"
+  },
+  {
+    "id": 9,
+    "name": "cheddar_cheese",
+    "group": "dairy",
+    "type": "cheese"
+  },
+  {
+    "id": 10,
+    "name": "gouda_cheese",
+    "group": "dairy",
+    "type": "cheese"
+  },
+  {
+    "id": 11,
+    "name": "mozzerella_cheese",
+    "group": "dairy",
+    "type": "cheese"
+  },
+  {
+    "id": 12,
+    "name": "brie_cheese",
+    "group": "dairy",
+    "type": "cheese"
+  },
+  {
+    "id": 13,
+    "name": "camembert",
+    "group": "dairy",
+    "type": "cheese"
+  },
+  {
+    "id": 14,
+    "name": "ipa",
+    "group": "alcohol",
+    "type": "beer"
+  },
+  {
+    "id": 15,
+    "name": "stout",
+    "group": "alcohol",
+    "type": "beer"
+  },
+  {
+    "id": 16,
+    "name": "pale_ale",
+    "group": "alcohol",
+    "type": "beer"
+  },
+  {
+    "id": 17,
+    "name": "red_wine",
+    "group": "alcohol",
+    "type": "wine"
+  },
+  {
+    "id": 18,
+    "name": "white_whine",
+    "group": "alcohol",
+    "type": "wine"
+  },
+  {
+    "id": 19,
+    "name": "steaktips",
+    "group": "produce",
+    "type": "meat"
+  },
+  {
+    "id": 20,
+    "name": "porkribs",
+    "group": "produce",
+    "type": "meat"
+  },
+  {
+    "id": 21,
+    "name": "chicken",
+    "group": "produce",
+    "type": "fowl"
+  },
+  {
+    "id": 22,
+    "name": "duck",
+    "group": "produce",
+    "type": "fowl"
+  },
+  {
+    "id": 23,
+    "name": "salmon",
+    "group": "produce",
+    "type": "seafood"
+  },
+  {
+    "id": 24,
+    "name": "tuna",
+    "group": "produce",
+    "type": "seafood"
+  },
+  {
+    "id": 25,
+    "name": "shrimp",
+    "group": "produce",
+    "type": "seafood"
+  },
+  {
+    "id": 26,
+    "name": "crab",
+    "group": "produce",
+    "type": "seafood"
+  },
+  {
+    "id": 27,
+    "name": "olive_oil",
+    "group": "oil",
+    "type": "oil"
+  },
+  {
+    "id": 28,
+    "name": "vinegar",
+    "group": "oil",
+    "type": "oil"
+  },
+  {
+    "id": 29,
+    "name": "tomato_paste",
+    "group": "vegetable",
+    "type": "paste"
+  },
+  {
+    "id": 30,
+    "name": "quiche",
+    "group": "baked",
+    "type": "pastry"
+  }
+]

@@ -10,9 +10,17 @@ const router = express.Router()
 
 // INDEX
 router.get('/recipes', requireToken, (req, res, next) => {
-  Recipe.find({ owner: req.user._id }).populate('ingredients')
+  Recipe.find().populate('owner')
     .then(recipes => {
-      return recipes.map(recipe => recipe.toObject())
+      return recipes.map(recipe => {
+        const recipeObj = recipe.toObject()
+        if (recipeObj.owner._id == req.user.id) { // eslint-disable-line eqeqeq
+          recipeObj.editable = true
+        } else {
+          recipeObj.editable = false
+        }
+        return recipeObj
+      })
     })
     .then(recipes => res.status(200).json({ recipes: recipes }))
     .catch(next)
@@ -20,32 +28,40 @@ router.get('/recipes', requireToken, (req, res, next) => {
 
 // SHOW
 router.get('/recipes/:id', requireToken, (req, res, next) => {
-  Recipe.findById(req.params.id).populate('ingredients')
+  Recipe.findById(req.params.id)
     .then(handle404)
     .then(recipe => res.status(200).json({ recipe: recipe.toObject() }))
     .catch(next)
 })
 
 // CREATE
+// post recipes with ingredients collection
 router.post('/recipes', requireToken, (req, res, next) => {
   req.body.recipe.owner = req.user.id
   Recipe.create(req.body.recipe)
     .then(recipe => {
-      res.status(201).json({ recipe: recipe.toObject() })
+      const recipeObj = recipe.toObject()
+      recipeObj.editable = true
+      return recipeObj
+    })
+    .then(recipeObj => {
+      res.status(201).json({ recipe: recipeObj })
     })
     .catch(next)
 })
 
 // UPDATE
+// patch recipes with ingredients collection
 router.patch('/recipes/:id', requireToken, removeBlanks, (req, res, next) => {
-  delete req.body.example.owner
+  delete req.body.recipe.owner
   Recipe.findById(req.params.id)
     .then(handle404)
-    .then(example => {
-      requireOwnership(req, example)
-      return example.update(req.body.example)
+    .then(recipe => {
+      requireOwnership(req, recipe)
+      return recipe.update(req.body.recipe)
     })
-    .then(() => res.sendStatus(204))
+    .then(() => Recipe.findById(req.params.id))
+    .then(recipe => res.status(200).json({ recipe: recipe.toObject() }))
     .catch(next)
 })
 
@@ -53,9 +69,9 @@ router.patch('/recipes/:id', requireToken, removeBlanks, (req, res, next) => {
 router.delete('/recipes/:id', requireToken, (req, res, next) => {
   Recipe.findById(req.params.id)
     .then(handle404)
-    .then(example => {
-      requireOwnership(req, example)
-      example.remove()
+    .then(recipe => {
+      requireOwnership(req, recipe)
+      recipe.remove()
     })
     .then(() => res.sendStatus(204))
     .catch(next)

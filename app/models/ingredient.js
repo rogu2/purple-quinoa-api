@@ -7,6 +7,10 @@ const mongoose = require('mongoose')
 // row: '21'
 
 const ingredientSchema = new mongoose.Schema({
+  id: {
+    type: String,
+    required: true
+  },
   name: {
     type: String,
     required: true

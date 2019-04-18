@@ -1,242 +1,182 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "name": "almond_milk",
     "group": "dairy",
-    "type": "milk",
-    "col": "A",
-    "row": "1"
+    "type": "milk"
   },
   {
-    "id": "2",
+    "id": 2,
     "name": "soy_milk",
     "group": "dairy",
-    "type": "milk",
-    "col": "B",
-    "row": "2"
+    "type": "milk"
   },
   {
-    "id": "3",
+    "id": 3,
     "name": "whole_milk",
     "group": "dairy",
-    "type": "milk",
-    "col": "C",
-    "row": "3"
+    "type": "milk"
   },
   {
-    "id": "4",
+    "id": 4,
     "name": "banana",
     "group": "fruit",
-    "type": "fruit",
-    "col": "D",
-    "row": "4"
+    "type": "fruit"
   },
   {
-    "id": "5",
+    "id": 5,
     "name": "1_percent_milk",
     "group": "dairy",
-    "type": "milk",
-    "col": "A",
-    "row": "5"
+    "type": "milk"
   },
   {
-    "id": "6",
+    "id": 6,
     "name": "2_percent_milk",
     "group": "dairy",
-    "type": "milk",
-    "col": "B",
-    "row": "6"
+    "type": "milk"
   },
   {
-    "id": "7",
+    "id": 7,
     "name": "skim_milk",
     "group": "dairy",
-    "type": "milk",
-    "col": "C",
-    "row": "7"
+    "type": "milk"
   },
   {
-    "id": "8",
+    "id": 8,
     "name": "yogurt",
     "group": "dairy",
-    "type": "yogurt",
-    "col": "D",
-    "row": "8"
+    "type": "yogurt"
   },
   {
-    "id": "9",
+    "id": 9,
     "name": "cheddar_cheese",
     "group": "dairy",
-    "type": "cheese",
-    "col": "A",
-    "row": "9"
+    "type": "cheese"
   },
   {
-    "id": "10",
+    "id": 10,
     "name": "gouda_cheese",
     "group": "dairy",
-    "type": "cheese",
-    "col": "B",
-    "row": "10"
+    "type": "cheese"
   },
   {
-    "id": "11",
+    "id": 11,
     "name": "mozzerella_cheese",
     "group": "dairy",
-    "type": "cheese",
-    "col": "C",
-    "row": "11"
+    "type": "cheese"
   },
   {
-    "id": "12",
+    "id": 12,
     "name": "brie_cheese",
     "group": "dairy",
-    "type": "cheese",
-    "col": "D",
-    "row": "12"
+    "type": "cheese"
   },
   {
-    "id": "13",
+    "id": 13,
     "name": "camembert",
     "group": "dairy",
-    "type": "cheese",
-    "col": "A",
-    "row": "13"
+    "type": "cheese"
   },
   {
-    "id": "14",
+    "id": 14,
     "name": "ipa",
     "group": "alcohol",
-    "type": "beer",
-    "col": "B",
-    "row": "14"
+    "type": "beer"
   },
   {
-    "id": "15",
+    "id": 15,
     "name": "stout",
     "group": "alcohol",
-    "type": "beer",
-    "col": "C",
-    "row": "15"
+    "type": "beer"
   },
   {
-    "id": "16",
+    "id": 16,
     "name": "pale_ale",
     "group": "alcohol",
-    "type": "beer",
-    "col": "D",
-    "row": "16"
+    "type": "beer"
   },
   {
-    "id": "17",
+    "id": 17,
     "name": "red_wine",
     "group": "alcohol",
-    "type": "wine",
-    "col": "A",
-    "row": "17"
+    "type": "wine"
   },
   {
-    "id": "18",
+    "id": 18,
     "name": "white_whine",
     "group": "alcohol",
-    "type": "wine",
-    "col": "B",
-    "row": "18"
+    "type": "wine"
   },
   {
-    "id": "19",
+    "id": 19,
     "name": "steaktips",
     "group": "produce",
-    "type": "meat",
-    "col": "C",
-    "row": "19"
+    "type": "meat"
   },
   {
-    "id": "20",
+    "id": 20,
     "name": "porkribs",
     "group": "produce",
-    "type": "meat",
-    "col": "D",
-    "row": "20"
+    "type": "meat"
   },
   {
-    "id": "21",
+    "id": 21,
     "name": "chicken",
     "group": "produce",
-    "type": "fowl",
-    "col": "A",
-    "row": "21"
+    "type": "fowl"
   },
   {
-    "id": "22",
+    "id": 22,
     "name": "duck",
     "group": "produce",
-    "type": "fowl",
-    "col": "B",
-    "row": "22"
+    "type": "fowl"
   },
   {
-    "id": "23",
+    "id": 23,
     "name": "salmon",
     "group": "produce",
-    "type": "seafood",
-    "col": "C",
-    "row": "23"
+    "type": "seafood"
   },
   {
-    "id": "24",
+    "id": 24,
     "name": "tuna",
     "group": "produce",
-    "type": "seafood",
-    "col": "D",
-    "row": "24"
+    "type": "seafood"
   },
   {
-    "id": "25",
+    "id": 25,
     "name": "shrimp",
     "group": "produce",
-    "type": "seafood",
-    "col": "A",
-    "row": "25"
+    "type": "seafood"
   },
   {
-    "id": "26",
+    "id": 26,
     "name": "crab",
     "group": "produce",
-    "type": "seafood",
-    "col": "B",
-    "row": "26"
+    "type": "seafood"
   },
   {
-    "id": "27",
+    "id": 27,
     "name": "olive_oil",
     "group": "oil",
-    "type": "oil",
-    "col": "C",
-    "row": "27"
+    "type": "oil"
   },
   {
-    "id": "28",
+    "id": 28,
     "name": "vinegar",
     "group": "oil",
-    "type": "oil",
-    "col": "D",
-    "row": "28"
+    "type": "oil"
   },
   {
-    "id": "29",
+    "id": 29,
     "name": "tomato_paste",
     "group": "vegetable",
-    "type": "paste",
-    "col": "A",
-    "row": "29"
+    "type": "paste"
   },
   {
-    "id": "30",
+    "id": 30,
     "name": "quiche",
     "group": "baked",
-    "type": "pastry",
-    "col": "B",
-    "row": "30"
+    "type": "pastry"
   }
 ]

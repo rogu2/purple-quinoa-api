@@ -40,7 +40,8 @@ instructions on its repo: https://github.com/2jar/purple-quinoa-client
 + Node JS
 
 ## API Routes
-|-----------------------------------------------------------|
+
+
 | Verb   | URI Pattern              | Controller#Action     |
 |--------|--------------------------|-----------------------|
 | POST   | `/sign-up`               | `users#signup`        |
@@ -60,7 +61,7 @@ instructions on its repo: https://github.com/2jar/purple-quinoa-client
 | POST   | `/ingredients`           | `ingredients#create`  |
 | DELETE | `/ingredients/:id`       | `ingredients#destroy` |
 | PATCH  | `/ingredients/:id`       | `ingredients#update`  |
-|-----------------------------------------------------------|
+
 
 #### ERD: Users -|--<-Recipes(Lists)-|--<-Ingredients (csv or json, pre-seeded)
 #### Wireframes: https://imgur.com/gallery/7ZEAyfA

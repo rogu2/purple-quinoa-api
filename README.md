@@ -66,15 +66,30 @@ instructions on its repo: https://github.com/2jar/purple-quinoa-client
 #### Wireframes: https://imgur.com/gallery/7ZEAyfA
 
 ## Development Process
+#### Personal story:
+ This is Purple Quinoa v1 which allows users to compile recipes of text entered
+ ingredients and edit/delete to their descretion. A future release of this app
+ will also permit users to add notes to their recipes as text.
 
-This is Purple Quinoa v1 which allows users to compile recipes of text entered
-ingredients and edit/delete to their descretion. A future release of this app
-will also permit users to add notes to their recipes as text.
+ I conceived of this app after exploring Idywilde Farms (Acton, MA) looking for
+ an ingredient called purple quinoa and could not look at it. I had a feeling I
+ was in the right location, however, for one reason or another, I simply could
+ not find it. It dawned on me that I must not be alone (or at least I certainly
+ hope not!).
 
-In future versions, this app may provide a super-user auth path for store owners
-to modify their ingredient list and location. The ingredient model in the future
-will allow for Row and Column entries to be designated in the database to
-coorespond with the client to render the coordinates visually.
+ Development began with considering the ERD, the API models and routes. I spent
+ a significant amount of time modifying and adjusting the API to have it conform
+ to its ideal future state.
+
+ After satisfying curl scripts on the API I then turned to developing the front
+ end and quickly realized that I over-designed the API which lead to refactoring.
+ Following this I completed the front end client using React JS to reach a mvp
+ state.
+
+ In future versions, this app may provide a super-user auth path for store owners
+ to modify their ingredient list and location. The ingredient model in the future
+ will allow for Row and Column entries to be designated in the database to
+ coorespond with the client to render the coordinates visually.
 
 #### User Stories
 + As a user I would like to:

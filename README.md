@@ -16,7 +16,7 @@ for a future release. Please see the future version section below for detail.
 ## Project URLs
 + API Github: https://github.com/rogu2/purple-quinoa-api
 + Client Github: https://github.com/rogu2/purple-quinoa-client
-+ Heroku: https://dashboard.heroku.com/apps/purple-quinoa-api
++ Heroku: https://git.heroku.com/purple-quinoa-api.git
 + Client URL: https://rogu2.github.io/purple-quinoa-client/
 
 ## Getting involved
@@ -115,7 +115,7 @@ instructions on its repo: https://github.com/2jar/purple-quinoa-client
 
 API Github: https://github.com/rogu2/purple-quinoa-api
 Client Github: https://github.com/rogu2/purple-quinoa-client
-Heroku: https://dashboard.heroku.com/apps/purple-quinoa-api
+Heroku: https://git.heroku.com/purple-quinoa-api.git
 Client URL: https://rogu2.github.io/purple-quinoa-client/
 
 ## License
